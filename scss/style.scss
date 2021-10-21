@@ -1,0 +1,128 @@
+@import "var";
+@import "mixins";
+@import "basic";
+@import "global";
+
+/**************
+HEADER
+**************/
+header {
+  nav {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    article {
+      @include flex;
+      border-bottom: 2px solid $white;
+      .logo {
+        padding: 25px 0;
+      }
+      ul {
+        @include flex($y: stretch);
+        li {
+          a {
+            @include flex(center, center, column);
+            color: $white;
+            text-transform: uppercase;
+            margin-left: 15px;
+            padding: 0 12px;
+            transition: background-color $transition, color $transition;
+            cursor: pointer;
+            height: 100%;
+            &:hover {
+              background: $white;
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+  article {
+    .item {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(rgba($black, 0.9), rgba($black, 0.3));
+        z-index: 2;
+      }
+    }
+    img {
+      height: 100%;
+    }
+  }
+}
+/**************
+services
+**************/
+.services {
+  padding: 50px 0;
+  background-color: $orange;
+  article {
+    @include flex(space-between, center);
+    div {
+      @include flex(center, space-between, column);
+      padding: 0 30px;
+      flex: 0 0 25%;
+      text-align: center;
+      color: $white;
+      h4 {
+        font-weight: 900;
+        margin: 15px 0;
+      }
+      p {
+        flex: 1;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+/**************
+about
+**************/
+.about {
+  background: linear-gradient(
+      to right,
+      rgba($white, 1),
+      rgba($white, 0.99) 45%,
+      rgba($white, 0)
+    ),
+    url(../img/about-img.jpg);
+  @include bgBasic;
+  padding: 150px 0;
+  article {
+    div {
+      width: 45%;
+    }
+  }
+  h2 {
+    font-weight: 700;
+    margin-bottom: 50px;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+/**************
+welcome
+**************/
+.welcome {
+  padding: 100px 0;
+  article {
+    @include flex;
+    .card {
+      flex: 0 0 32%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
