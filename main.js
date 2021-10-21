@@ -1,7 +1,12 @@
+// header slider
 $(".owl-carousel").owlCarousel({
   loop: true,
   margin: 0,
   nav: true,
+  navText: [
+    '<i class="fas fa-chevron-circle-left"></i>',
+    '<i class="fas fa-chevron-circle-right"></i>',
+  ],
   responsive: {
     0: {
       items: 1,
@@ -14,16 +19,12 @@ $(".owl-carousel").owlCarousel({
     },
   },
 });
-
-let menuBtn = document.querySelectorAll(".menuBtn");
-let menuList = document.getElementById("menuList");
-let counter = document.querySelectorAll(".counter > h4");
-let statistics = document.querySelector(".statistics");
-let limit = [];
-let trigered = true;
-let statisticsHeight = statistics.scrollHeight;
+// -------------------------------------------------------
 
 // show menu
+let menuBtn = document.querySelectorAll(".menuBtn");
+let menuList = document.getElementById("menuList");
+
 menuBtn.forEach((btn) => {
   btn.addEventListener("click", showMenu);
 });
@@ -31,8 +32,15 @@ menuBtn.forEach((btn) => {
 function showMenu() {
   menuList.classList.toggle("showMenu");
 }
+// ----------------------------------------------------------
 
-// statistic counter
+// experiance counter
+let counter = document.querySelectorAll(".experience h3");
+let statistics = document.querySelector(".experience");
+let limit = [];
+let trigered = true;
+let statisticsHeight = statistics.scrollHeight;
+
 counter.forEach((el) => {
   limit.push(parseInt(el.innerText));
   el.innerText = 0;
@@ -41,7 +49,6 @@ counter.forEach((el) => {
 window.onscroll = () => {
   if (trigered && statistics.offsetTop < window.scrollY + statisticsHeight) {
     trigered = false;
-
     startCount();
   }
 };
