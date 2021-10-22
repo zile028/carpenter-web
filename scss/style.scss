@@ -11,15 +11,61 @@ header {
     position: absolute;
     z-index: 3;
     width: 100%;
-    article {
+    .container {
       @include flex;
       border-bottom: 2px solid $white;
+      position: relative;
+      perspective: 900px;
+      @media (max-width: 768px) {
+        width: 90%;
+      }
       .logo {
         padding: 25px 0;
       }
+      .menuBtn {
+        height: 50px;
+        width: 50px;
+        align-self: center;
+        font-size: 1.8rem;
+        background: transparent;
+        color: $white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color $transition, color $transition;
+        display: none;
+        @media (max-width: 920px) {
+          display: block;
+        }
+        &:hover {
+          background-color: $white;
+          color: $black;
+        }
+        &.active {
+          background-color: $white;
+          color: $black;
+        }
+      }
       ul {
         @include flex($y: stretch);
+        @media (max-width: 920px) {
+          @include flex(center, center, column);
+          background-color: rgba($black, 0.9);
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 100%;
+          padding: 10px 0;
+          transform-origin: center top;
+          transition: transform $transition;
+          transform: scale(1, 0);
+          &.active {
+            transform: scale(1);
+          }
+        }
         li {
+          @media (max-width: 920px) {
+            width: 100%;
+          }
           a {
             @include flex(center, center, column);
             color: $white;
@@ -29,6 +75,11 @@ header {
             transition: background-color $transition, color $transition;
             cursor: pointer;
             height: 100%;
+            @media (max-width: 920px) {
+              margin-left: 0;
+              line-height: 2;
+              width: 100%;
+            }
             &:hover {
               background: $white;
               color: $black;
@@ -92,6 +143,9 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     width: $containerWidth;
+    @media (max-width: 768px) {
+      width: 90%;
+    }
     @include flex;
     button {
       &:hover {
@@ -139,6 +193,14 @@ services
       flex: 0 0 25%;
       text-align: center;
       color: $white;
+      @media (max-width: 768px) {
+        flex: 0 0 50%;
+        padding: 30px;
+      }
+      @media (max-width: 480px) {
+        flex: 0 0 100%;
+      }
+
       h4 {
         font-weight: 900;
         margin: 15px 0;
@@ -159,14 +221,19 @@ about
       to right,
       rgba($white, 1),
       rgba($white, 0.99) 45%,
-      rgba($white, 0)
+      rgba($white, 0.3)
     ),
     url(../img/about-img.jpg);
   @include bgBasic;
-  padding: 150px 0;
   article {
     div {
+      padding: 150px 0;
       width: 45%;
+      @media (max-width: 768px) {
+        padding: 100px 0;
+        width: 100%;
+        color: $black;
+      }
     }
   }
   h2 {
@@ -187,6 +254,10 @@ welcome
     @include flex;
     .card {
       flex: 0 0 32%;
+      @media (max-width: 768px) {
+        flex: 0 0 100%;
+        margin-bottom: 30px;
+      }
       &-header {
         height: 255px;
         overflow: hidden;
@@ -228,9 +299,15 @@ experiance
   article {
     @include flex;
     text-align: center;
-
     .wrapper {
       flex: 1;
+      @media (max-width: 768px) {
+        flex: 50%;
+        margin-bottom: 30px;
+      }
+      @media (max-width: 480px) {
+        flex: 100%;
+      }
     }
     img {
       margin: 0 auto;
@@ -258,6 +335,13 @@ what we do
       flex: 0 0 23%;
       position: relative;
       overflow: hidden;
+      @media (max-width: 1200px) {
+        flex: 0 0 49%;
+        margin-bottom: 2%;
+      }
+      @media (max-width: 768px) {
+        flex: 0 0 100%;
+      }
       &:hover {
         & > .card-body {
           transform: translate(0, 0);
@@ -309,6 +393,14 @@ team
   article {
     .card {
       flex: 0 0 23%;
+      @media (max-width: 1200px) {
+        flex: 0 0 49%;
+        margin-bottom: 2%;
+      }
+      @media (max-width: 768px) {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+      }
       &-header {
         border-radius: 50%;
         height: auto;
@@ -347,16 +439,29 @@ footer {
     url(../img/footer-bg.jpg);
   @include bgBasic;
   color: $white;
-
   article {
     &:first-child {
       @include flex;
       padding: 80px 0;
+      div {
+        flex: 1;
+        @media (max-width: 768px) {
+          flex: 0 0 50%;
+          margin-bottom: 2%;
+        }
+        @media (max-width: 480px) {
+          flex: 0 0 100%;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+      }
       h3 {
         margin-bottom: 30px;
       }
-      li {
-        line-height: 2.5;
+      ul {
+        li {
+          line-height: 2.5;
+        }
       }
     }
     &:last-child {

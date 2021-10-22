@@ -3,6 +3,7 @@ $(".owl-carousel").owlCarousel({
   loop: true,
   margin: 0,
   nav: true,
+  autoplay: true,
   navText: [
     '<i class="fas fa-chevron-circle-left"></i>',
     '<i class="fas fa-chevron-circle-right"></i>',
@@ -30,7 +31,10 @@ menuBtn.forEach((btn) => {
 });
 
 function showMenu() {
-  menuList.classList.toggle("showMenu");
+  menuBtn.forEach((btn) => {
+    btn.classList.toggle("active");
+  });
+  menuList.classList.toggle("active");
 }
 // ----------------------------------------------------------
 

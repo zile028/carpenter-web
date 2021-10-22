@@ -61,12 +61,6 @@ img {
   margin: 0 auto;
 }
 
-@media (max-width: 1140px) {
-  .container {
-    width: 95%;
-  }
-}
-
 hgroup {
   text-align: center;
   padding: 50px 0;
@@ -111,20 +105,57 @@ header nav {
   width: 100%;
 }
 
-header nav article {
+header nav .container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
   border-bottom: 2px solid #ffffff;
+  position: relative;
+  perspective: 900px;
 }
 
-header nav article .logo {
+@media (max-width: 768px) {
+  header nav .container {
+    width: 90%;
+  }
+}
+
+header nav .container .logo {
   padding: 25px 0;
 }
 
-header nav article ul {
+header nav .container .menuBtn {
+  height: 50px;
+  width: 50px;
+  align-self: center;
+  font-size: 1.8rem;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  display: none;
+}
+
+@media (max-width: 920px) {
+  header nav .container .menuBtn {
+    display: block;
+  }
+}
+
+header nav .container .menuBtn:hover {
+  background-color: #ffffff;
+  color: #010101;
+}
+
+header nav .container .menuBtn.active {
+  background-color: #ffffff;
+  color: #010101;
+}
+
+header nav .container ul {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -132,7 +163,35 @@ header nav article ul {
   align-items: stretch;
 }
 
-header nav article ul li a {
+@media (max-width: 920px) {
+  header nav .container ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(1, 1, 1, 0.9);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    padding: 10px 0;
+    transform-origin: center top;
+    transition: transform 0.4s ease;
+    transform: scale(1, 0);
+  }
+  header nav .container ul.active {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 920px) {
+  header nav .container ul li {
+    width: 100%;
+  }
+}
+
+header nav .container ul li a {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -147,7 +206,15 @@ header nav article ul li a {
   height: 100%;
 }
 
-header nav article ul li a:hover {
+@media (max-width: 920px) {
+  header nav .container ul li a {
+    margin-left: 0;
+    line-height: 2;
+    width: 100%;
+  }
+}
+
+header nav .container ul li a:hover {
   background: #ffffff;
   color: #010101;
 }
@@ -215,6 +282,12 @@ header .owl-nav {
   align-items: stretch;
 }
 
+@media (max-width: 768px) {
+  header .owl-nav {
+    width: 90%;
+  }
+}
+
 header .owl-nav button:hover {
   background: transparent;
 }
@@ -275,6 +348,19 @@ services
   color: #ffffff;
 }
 
+@media (max-width: 768px) {
+  .services article div {
+    flex: 0 0 50%;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services article div {
+    flex: 0 0 100%;
+  }
+}
+
 .services article div h4 {
   font-weight: 900;
   margin: 15px 0;
@@ -289,15 +375,23 @@ services
 about
 **************/
 .about {
-  background: linear-gradient(to right, white, rgba(255, 255, 255, 0.99) 45%, rgba(255, 255, 255, 0)), url(../img/about-img.jpg);
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0.99) 45%, rgba(255, 255, 255, 0.3)), url(../img/about-img.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 150px 0;
 }
 
 .about article div {
+  padding: 150px 0;
   width: 45%;
+}
+
+@media (max-width: 768px) {
+  .about article div {
+    padding: 100px 0;
+    width: 100%;
+    color: #010101;
+  }
 }
 
 .about h2 {
@@ -326,6 +420,13 @@ welcome
 
 .welcome article .card, .team article .card {
   flex: 0 0 32%;
+}
+
+@media (max-width: 768px) {
+  .welcome article .card, .team article .card {
+    flex: 0 0 100%;
+    margin-bottom: 30px;
+  }
 }
 
 .welcome article .card-header, .team article .card-header {
@@ -388,6 +489,19 @@ experiance
   flex: 1;
 }
 
+@media (max-width: 768px) {
+  .experience article .wrapper {
+    flex: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience article .wrapper {
+    flex: 100%;
+  }
+}
+
 .experience article img {
   margin: 0 auto;
 }
@@ -420,6 +534,19 @@ what we do
   flex: 0 0 23%;
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .whatWeDo article .card {
+    flex: 0 0 49%;
+    margin-bottom: 2%;
+  }
+}
+
+@media (max-width: 768px) {
+  .whatWeDo article .card {
+    flex: 0 0 100%;
+  }
 }
 
 .whatWeDo article .card:hover > .card-body {
@@ -473,6 +600,20 @@ team
   flex: 0 0 23%;
 }
 
+@media (max-width: 1200px) {
+  .team article .card {
+    flex: 0 0 49%;
+    margin-bottom: 2%;
+  }
+}
+
+@media (max-width: 768px) {
+  .team article .card {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+}
+
 .team article .card-header {
   border-radius: 50%;
   height: auto;
@@ -523,11 +664,30 @@ footer article:first-child {
   padding: 80px 0;
 }
 
+footer article:first-child div {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  footer article:first-child div {
+    flex: 0 0 50%;
+    margin-bottom: 2%;
+  }
+}
+
+@media (max-width: 480px) {
+  footer article:first-child div {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
 footer article:first-child h3 {
   margin-bottom: 30px;
 }
 
-footer article:first-child li {
+footer article:first-child ul li {
   line-height: 2.5;
 }
 
