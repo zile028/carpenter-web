@@ -139,7 +139,7 @@ header nav .container .menuBtn {
   display: none;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1030px) {
   header nav .container .menuBtn {
     display: block;
   }
@@ -163,7 +163,7 @@ header nav .container ul {
   align-items: stretch;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1030px) {
   header nav .container ul {
     display: flex;
     flex-wrap: wrap;
@@ -185,7 +185,7 @@ header nav .container ul {
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1030px) {
   header nav .container ul li {
     width: 100%;
   }
@@ -206,7 +206,7 @@ header nav .container ul li a {
   height: 100%;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1030px) {
   header nav .container ul li a {
     margin-left: 0;
     line-height: 2;
@@ -321,7 +321,7 @@ header .owl-theme .owl-dots .owl-dot.active span {
 }
 
 /**************
-services
+SERVICES
 **************/
 .services {
   padding: 50px 0;
@@ -372,7 +372,7 @@ services
 }
 
 /**************
-about
+ABOUT
 **************/
 .about {
   background: linear-gradient(to right, white, rgba(255, 255, 255, 0.99) 45%, rgba(255, 255, 255, 0.3)), url(../img/about-img.jpg);
@@ -400,11 +400,12 @@ about
 }
 
 .about p {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 /**************
-welcome
+WELCOME
 **************/
 .welcome, .team {
   padding: 100px 0;
@@ -452,6 +453,7 @@ welcome
 .welcome article .card p, .team article .card p {
   font-weight: 300;
   margin-bottom: 25px;
+  line-height: 1.5;
 }
 
 .welcome article .card img, .team article .card img {
@@ -665,6 +667,11 @@ footer article:first-child {
 }
 
 footer article:first-child div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: flex-start;
   flex: 1;
 }
 
@@ -681,6 +688,36 @@ footer article:first-child div {
     margin-bottom: 20px;
     text-align: center;
   }
+}
+
+footer article:first-child div form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+
+footer article:first-child div form * {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+
+footer article:first-child div form *:not(button) {
+  font-size: 0.9rem;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+footer article:first-child div form textarea {
+  flex: 1;
+  display: block;
+  resize: none;
 }
 
 footer article:first-child h3 {

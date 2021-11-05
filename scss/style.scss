@@ -33,7 +33,7 @@ header {
         cursor: pointer;
         transition: background-color $transition, color $transition;
         display: none;
-        @media (max-width: 920px) {
+        @media (max-width: 1030px) {
           display: block;
         }
         &:hover {
@@ -47,7 +47,7 @@ header {
       }
       ul {
         @include flex($y: stretch);
-        @media (max-width: 920px) {
+        @media (max-width: 1030px) {
           @include flex(center, center, column);
           background-color: rgba($black, 0.9);
           position: absolute;
@@ -63,7 +63,7 @@ header {
           }
         }
         li {
-          @media (max-width: 920px) {
+          @media (max-width: 1030px) {
             width: 100%;
           }
           a {
@@ -75,7 +75,7 @@ header {
             transition: background-color $transition, color $transition;
             cursor: pointer;
             height: 100%;
-            @media (max-width: 920px) {
+            @media (max-width: 1030px) {
               margin-left: 0;
               line-height: 2;
               width: 100%;
@@ -180,7 +180,7 @@ header {
 }
 
 /**************
-services
+SERVICES
 **************/
 .services {
   padding: 50px 0;
@@ -214,7 +214,7 @@ services
 }
 
 /**************
-about
+ABOUT
 **************/
 .about {
   background: linear-gradient(
@@ -241,12 +241,13 @@ about
     margin-bottom: 50px;
   }
   p {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }
 
 /**************
-welcome
+WELCOME
 **************/
 .welcome {
   padding: 100px 0;
@@ -274,6 +275,7 @@ welcome
       p {
         font-weight: 300;
         margin-bottom: 25px;
+        line-height: 1.5;
       }
       img {
         width: 100%;
@@ -441,9 +443,10 @@ footer {
   color: $white;
   article {
     &:first-child {
-      @include flex;
+      @include flex(space-between, stretch);
       padding: 80px 0;
       div {
+        @include flex(flex-start, stretch, column);
         flex: 1;
         @media (max-width: 768px) {
           flex: 0 0 50%;
@@ -453,6 +456,30 @@ footer {
           flex: 0 0 100%;
           margin-bottom: 20px;
           text-align: center;
+        }
+        form {
+          @include flex(center, center, column);
+          width: 100%;
+          flex: 1;
+          * {
+            font-family: $textFont;
+            width: 100%;
+
+            &:not(button) {
+              font-size: 0.9rem;
+              padding: 5px;
+              margin-bottom: 10px;
+              border: 1px solid $white;
+              background-color: transparent;
+              color: $white;
+            }
+          }
+
+          textarea {
+            flex: 1;
+            display: block;
+            resize: none;
+          }
         }
       }
       h3 {

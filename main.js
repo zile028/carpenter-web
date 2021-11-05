@@ -25,11 +25,14 @@ $(".owl-carousel").owlCarousel({
 // show menu
 let menuBtn = document.querySelectorAll(".menuBtn");
 let menuList = document.getElementById("menuList");
+let menuLink = menuList.querySelectorAll("a");
 
 menuBtn.forEach((btn) => {
   btn.addEventListener("click", showMenu);
 });
-
+menuLink.forEach((link) => {
+  link.addEventListener("click", showMenu);
+});
 function showMenu() {
   menuBtn.forEach((btn) => {
     btn.classList.toggle("active");
